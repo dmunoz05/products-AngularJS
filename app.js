@@ -3,11 +3,11 @@ var app = angular.module("app", ["ngRoute"]);
 app.config(function ($routeProvider) {
   $routeProvider
     .when("/", {
-      templateUrl: "cajero.html",
+      templateUrl: "/cajero.html",
       controller: "controlador"
     })
     .when("/productos", {
-      templateUrl: "productos.html",
+      templateUrl: "/productos.html",
       controller: "controlador"
     })
 })
@@ -19,13 +19,13 @@ function ControllerFunction($scope) {
   var n = 2;
   var nCarrito = 1;
 
-  lista.nombreApp = "App in AngularJS";
+  lista.nombreApp = "Product AngularJS";
 
   lista.productos = [
-    { id: 1, nombre: "Coca Cola", precio: 150 },
-    { id: 2, nombre: "Pepsi", precio: 120 },
-    { id: 3, nombre: "Fanta", precio: 130 },
-    { id: 4, nombre: "Sprite", precio: 140 }
+    { id: 1, nombre: "Coca Cola", precio: 150, total: 24 },
+    { id: 2, nombre: "Pepsi", precio: 120, total: 25 },
+    { id: 3, nombre: "Fanta", precio: 130, total: 26 },
+    { id: 4, nombre: "Sprite", precio: 140, total: 27 },
   ];
 
   lista.carrito = [];
@@ -36,7 +36,7 @@ function ControllerFunction($scope) {
 
     if(nombre != "" && precio !== "" && !isNaN(precio)){
       n++;
-      lista.productos.push({ id: n, nombre: nombre, precio: precio });
+      lista.productos.push({ id: n, nombre: nombre, precio: precio, total: n });
       lista.nombre = "";
       lista.precio = "";
     }
@@ -53,6 +53,8 @@ function ControllerFunction($scope) {
       lista.carrito.push({ id: n, nombre: producto.nombre, precio: producto.precio, cantidad: cantidad });
       nCarrito++;
     }
+    lista.productoSeleccionado = "";
+    lista.cantidad = "";
   }
 
   lista.getTotalCarrito = function() {
