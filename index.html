@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="main.css">
+  <script src="angular.min.js"></script>
+  <script src="angular-route.min.js"></script>
+  <script src="app.js"></script>
+</head>
+<body ng-controller="controlador" >
+  <h1>Hola {{ nombreApp }} </h1>
+
+  <div id="menu">
+    <ul>
+      <li><a href="#!">Cajero</a></li>
+      <li><a href="#!productos">Productos</a></li>
+    </ul>
+  </div>
+
+  <input type="text" ng-model="nombre">
+  <input type="text" ng-model="precio">
+  <button ng-click="addProduct()">Añadir</button>
+
+  <select name="" id="" ng-model="productoSeleccionado">
+    <option ng-repeat="producto in productos" value="{{producto.id}}">{{producto.nombre}}</option>
+  </select>
+
+  <div ng-view></div>
+
+  <!-- <li ng-repeat="producto in productos">
+    {{ producto.nombre }}
+  </li> -->
+</body>
+</html>
