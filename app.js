@@ -2,8 +2,8 @@ var app = angular.module("app", ["ngRoute"]);
 
 app.config(function ($routeProvider) {
   $routeProvider
-    .when("/", {
-      templateUrl: "/cajero.html",
+    .when("/carrito", {
+      templateUrl: "/carrito.html",
       controller: "controlador"
     })
     .when("/productos", {
@@ -19,7 +19,7 @@ function ControllerFunction($scope) {
   var n = 2;
   var nCarrito = 1;
 
-  lista.nombreApp = "Product AngularJS";
+  lista.nombreApp = "Products with AngularJS";
 
   lista.productos = [
     { id: 1, nombre: "Coca Cola", precio: 150, total: 24 },

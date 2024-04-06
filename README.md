@@ -1,4 +1,4 @@
-# Sitio Web de Productos cond AngularJS
+# Sitio Web de Productos con AngularJS
 
 En este repositorio de practica para AngularJS de productos de un restaurante
 

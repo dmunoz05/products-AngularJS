@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="main.css" />
+
+<select name="" id="" ng-model="productoSeleccionado">
+  <option ng-repeat="producto in productos" value="{{producto.id}}">
+    {{producto.nombre}}
+  </option>
+</select>
+
+<input type="text" ng-model="cantidad" />
+
+<input type="button" value="Añadir" ng-click="addAlCarrito()" />
+
+<table cellspacing="0">
+  <thead>
+    <tr>
+      <td>Producto</td>
+      <td>Precio</td>
+      <td>Cantidad</td>
+      <td>Total</td>
+    </tr>
+    <tr ng-repeat="producto in carrito">
+      <td>{{ producto.nombre }}</td>
+      <td>${{ producto.precio }}</td>
+      <td>{{ producto.cantidad }}</td>
+      <td>${{ producto.precio * producto.cantidad }}</td>
+    </tr>
+    <tr class="total">
+      <td>${{ getTotalCarrito() }}</td>
+    </tr>
+  </thead>
+</table>
